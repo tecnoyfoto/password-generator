@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Contraseñas de Tecnoyfoto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="password-generator" class="container">
+        <h1>Generador de Contraseñas</h1>
+        <div>
+            <label for="tipo-servicio">Selecciona el tipo de servicio:</label>
+            <select id="tipo-servicio" onchange="configurarOpciones()">
+                <option value="" disabled selected>Selecciona un servicio</option>
+                <option value="critico">Servicio Crítico (Banco, Email)</option>
+                <option value="alta">Alta Seguridad (Redes Sociales, Mensajería)</option>
+                <option value="media">Seguridad Media-Alta (Routers, Domótica)</option>
+                <option value="basica">Seguridad Básica (Juegos, Streaming)</option>
+            </select>
+        </div>
+        <button id="toggle-advanced" onclick="toggleAdvanced()">Mostrar Opciones Avanzadas</button>
+        <div id="advanced-options" style="display:none;">
+            <label><input type="checkbox" id="mayusculas" checked> Incluir Mayúsculas</label>
+            <label><input type="checkbox" id="minusculas" checked> Incluir Minúsculas</label>
+            <label><input type="checkbox" id="numeros" checked> Incluir Números</label>
+            <label><input type="checkbox" id="simbolos" checked> Incluir Símbolos</label>
+            <label for="longitud">Longitud de la contraseña:</label>
+            <input type="number" id="longitud" min="8" max="25" value="12">
+        </div>
+        <button onclick="generarContraseña()">Generar Contraseña</button>
+        <input type="text" id="resultado" readonly>
+        <button onclick="copiarContraseña()">Copiar</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
